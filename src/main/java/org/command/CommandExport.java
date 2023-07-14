@@ -13,11 +13,9 @@ import java.util.logging.Logger;
 public class
 CommandExport implements CommandExecutor {
     private static final Logger LOGGER = Logger.getLogger(CommandExport.class.getName());
-
     @Override
     public void execute() {
         LOGGER.fine("Вызвана команда note_export");
-
         String filename = generateFilename();
         try (FileWriter writer = new FileWriter(filename)) {
             for (Note note : Note.getNoteList()) {
@@ -29,7 +27,6 @@ CommandExport implements CommandExecutor {
             LOGGER.severe("Не удалось экспортировать заметки: " + e.getMessage());
         }
     }
-
     private String generateFilename() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd_HH-mm-ss");
         String timestamp = dateFormat.format(new Date());

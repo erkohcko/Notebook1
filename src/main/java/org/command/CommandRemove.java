@@ -24,24 +24,24 @@ public class CommandRemove implements CommandExecutor {
             if (id == -1) {
                 throw new NoteException("Было введено не число");
             }
-                List<Note> noteList = Note.getNoteList();
-                boolean found = false;
-                for (int i = 0; i < noteList.size(); i++) {
-                    Note note = noteList.get(i);
-                    if (note.getId() == id) {
-                        found = true;
-                        boolean removed = Note.remove(note);
-                        if (removed) {
-                            System.out.printf("Заметка с id %d удалена\n", id);
-                        } else {
-                            System.out.printf("Не удалось удалить заметку с id %d\n", id);
-                        }
-                        break;
+            List < Note > noteList = Note.getNoteList();
+            boolean found = false;
+            for (int i = 0; i < noteList.size(); i++) {
+                Note note = noteList.get(i);
+                if (note.getId() == id) {
+                    found = true;
+                    boolean removed = Note.remove(note);
+                    if (removed) {
+                        System.out.printf("Заметка с id %d удалена\n", id);
+                    } else {
+                        System.out.printf("Не удалось удалить заметку с id %d\n", id);
                     }
+                    break;
                 }
-                if (!found) {
-                    System.out.printf("Заметка с id %d не найдена\n", id);
-                }
+            }
+            if (!found) {
+                System.out.printf("Заметка с id %d не найдена\n", id);
+            }
 
         } catch (NoteException e) {
             System.err.println(e.getMessage());
