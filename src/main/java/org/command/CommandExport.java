@@ -1,7 +1,6 @@
 package org.command;
 
 
-
 import org.utility.Note;
 
 import java.io.FileWriter;
@@ -9,7 +8,6 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Logger;
-
 
 
 public class

@@ -56,44 +56,13 @@ public class Note {
         return Objects.hash(id, noteText, labels);
     }
 
-    public static boolean add(Note note) {
-        if (noteList.contains(note)) {
-            return false;
-        }
-        return noteList.add(note);
-    }
+
 
     public static boolean remove(Note note) {
         return noteList.remove(note);
     }
 
-    public static boolean removeNoteById(int id) {
-        Iterator<Note> iterator = noteList.iterator();
-        while (iterator.hasNext()) {
-            Note note = iterator.next();
-            if (note.getId() == id) {
-                iterator.remove();
-                return true;
-            }
-        }
-        return false;
-    }
-
-    public void setNoteText(String noteText) {
-    }
-
-    public void setLabels(List<String> labels) {
-    }
-
-    public void setId(int id) {
-    }
-
-    public Note() {
-        this(0, "", new ArrayList<>());
-    }
 
 
-    public List<String> getLabel() {
-        return labels;
-    }
+
 }

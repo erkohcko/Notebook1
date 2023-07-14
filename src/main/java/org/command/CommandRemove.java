@@ -15,7 +15,7 @@ public class CommandRemove implements CommandExecutor {
     private static final Logger LOGGER = Logger.getLogger(CommandRemove.class.getName());
 
     @Override
-    public void execute() {
+    public void execute() throws NoteException {
         LOGGER.fine("Вызвана команда note_remove");
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите id удаляемой заметки: ");
@@ -23,7 +23,7 @@ public class CommandRemove implements CommandExecutor {
             int id = Checkout.parseInt(scanner.nextLine());
             if (id == -1) {
                 throw new NoteException("Было введено не число");
-            } else {
+            }
                 List<Note> noteList = Note.getNoteList();
                 boolean found = false;
                 for (int i = 0; i < noteList.size(); i++) {
@@ -42,7 +42,7 @@ public class CommandRemove implements CommandExecutor {
                 if (!found) {
                     System.out.printf("Заметка с id %d не найдена\n", id);
                 }
-            }
+
         } catch (NoteException e) {
             System.err.println(e.getMessage());
         }

@@ -10,8 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Logger;
 
-import static org.utility.Checkout.checkNoteLabel;
-import static org.utility.Checkout.checkNoteTextLength;
+
 import static org.utility.Note.noteList;
 
 public class CommandNewNote implements CommandExecutor {
